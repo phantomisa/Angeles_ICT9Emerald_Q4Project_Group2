@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Profile</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="styles.css" rel="stylesheet">
+
+	<style>
+		body {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			background-image: url("3.jpg");
+			background-size: cover;
+		}
+
+		.container {
+			background-color: white;
+			width: 500px;
+			margin: auto;
+			margin-top: 50px;
+			padding: 30px;
+			border-radius: 20px;
+			text-align: center;
+		}
+
+		h1 {
+			color: #024a85;
+		}
+
+		#profilePic {
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+		}
+
+		.label {
+			color: #024a85;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.value {
+			font-size: 18px;
+			color: black;
+		}
+
+		input[type=file] {
+			display: none;
+		}
+
+		.upload {
+			background-color: #024a85;
+			color: white;
+			padding: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+			display: inline-block;
+			margin-top: 10px;
+		}
+
+		.upload:hover {
+			background-color: #0366b0;
+		}
+
+		button {
+			background-color: #024a85;
+			color: white;
+			padding: 10px;
+			border: none;
+			border-radius: 10px;
+			margin-top: 20px;
+			cursor: pointer;
+		}
+
+		.footer {
+			background-color: #024a85;
+			color: white;
+			width: 500px;
+			margin: auto;
+			margin-top: 20px;
+			padding: 10px;
+			border-radius: 15px;
+		}
+
+		.nav-item {
+            font-size: 20px;
+        }
+        .nav-item:hover{
+            transform: scale(1.05);
+            transition: 0.5s;
+        }
+        .navbar-brand:hover{
+            transform: scale(1.05);
+            transition: 0.5s;
+        }
+	</style>
+</head>
+<body>
+
+	<div class="d-flex" id="wrapper">\
+        <nav id="sidebar" class="text-white p-3 vh-100 position-fixed" style="width: 250px; background-color: #024a85; box-shadow: rgba(0, 0, 0, 0.5) 10px -2px 15px;">
+            <a class="navbar-brand d-flex justify-content-center" href="dashboard.html"><img src="OBMC LOGO.png" alt="logo" style="color: #9fbec4; height: 150px;"></a>
+            <ul class="nav flex-column mb-auto">
+                <li class="nav-item" id="nav-dash">
+                    <a href="dashboard.html" class="nav-link text-white active">DASHBOARD</a>
+                </li>
+                <li class="nav-item" id="nav-ntbk">
+                    <a href="notebooks.html" class="nav-link text-white">NOTEBOOKS</a>
+                </li>
+                <li class="nav-item" id="nav-tasks">
+                    <a href="tasks.html" class="nav-link text-white">TASKS</a>
+                </li>
+                <li class="nav-item" id="nav-prof">
+                    <a href="profile.html" class="nav-link text-white">PROFILE</a>
+                </li>
+                <li class="nav-item" id="nav-logout">
+                    <a href="index.html" class="nav-link text-white">LOG-OUT</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div style="margin-left: 275px; width: width: calc(100% - 250px); padding: 20px;">
+
+
+		<div class="container">
+			<h1>Student Information</h1>
+
+			<img src="pfp.png" id="profilePic">
+			<br><br>
+
+			<label for="pic" class="upload">Upload Photo</label>
+			<input type="file" id="pic" onchange="changePhoto(event)">
+
+			<p class="label">Student ID</p>
+			<p class="value">6776078</p>
+
+			<p class="label">Contact Number</p>
+			<p class="value">+63098557421</p>
+
+			<p class="label">Email Address</p>
+			<p class="value">lrbalajadia@obmontessori.edu.ph</p>
+
+			<p class="label">Gender</p>
+			<p class="value">Male</p>
+
+			<button onclick="changePassword()">Change Password</button>
+		</div>
+
+		<div class="footer" style="text-align: center;">
+			Rivera, I., Garcia, Sibug, Bucad || 9-Emerald 
+		</div>
+
+	</div>
+
+	<script>
+		function changePassword() {
+			var password = prompt("Enter new password:");
+
+			if (password != "") {
+				alert("Password changed!");
+			} else {
+				alert("Cancelled");
+			}
+		}
+
+		function changePhoto(event) {
+			var image = document.getElementById("profilePic");
+			image.src = URL.createObjectURL(event.target.files[0]);
+		}
+	</script>
+
+</body>
+</html>
